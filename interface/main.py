@@ -9,8 +9,8 @@ with st.form("input_form",clear_on_submit=True):
     if st.form_submit_button("Basic infos"):
         if data is not None:
             df=pd.read_csv(data)
-            st.text(df.infos())
+            st.text(df.info())
     if st.form_submit_button("Basic statistics"):
         if data is not None:
             df=pd.read_csv(data)
-            st.text(df.infos())
+            st.text(df.describe())
