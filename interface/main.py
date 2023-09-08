@@ -3,7 +3,10 @@ import matplotlib.pyplot as plt
 import seaborn as sn
 import streamlit as st
 
-
-data=st.file_uploader('download your csv file',type='csv')
-df=pd.read_csv(data)
-st.text(df.head())
+with st.form("input_form",clear_on_submit=True):
+    st.write("<h3>Upload your data on csv format ✨</h3>", unsafe_allow_html=True)
+    data=st.file_uploader('download your csv file',type='csv')
+    if st.form_submit_button("Predict"):
+        if data is not None:
+            df=pd.read_csv(data)
+            st.text(df.head())
